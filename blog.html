@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* #hd::after{
+            width: 30%
+            colo
+        } */
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Card hover effects */
+        .card-hover {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            background-color: #4b5563;
+        }
+
+        /* Navigation link hover effects */
+        .nav-link {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        /* #hd::after{
+            content: '';
+            width: 50%;
+            background-color: #facc15;
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            height: 2px;
+        } */
+        .nav-link:hover::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #facc15;
+        }
+
+        /* Image hover effect */
+        .profile-img {
+            transition: all 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+        /* Progress bar animation */
+        .progress-bar {
+            animation: progress 1.5s ease-in-out forwards;
+        }
+
+        @keyframes progress {
+            from {
+                width: 0;
+            }
+            to {
+                width: var(--progress-width);
+            }
+        }
+    </style>
+    <title>Blogs</title>
+</head>
+<body class="bg-black">
+     <!-- Main -->
+     <section class="flex justify-between w-full min-h-screen gap-4 p-16">
+
+        <!-- Left section -->
+        <section class="w-2/5 animate-fadeInUp">
+            <div class="p-2 mx-2 rounded-lg bg-gray-700 text-white card-hover">
+                <img src="me.png" alt="mehtabwazir" class="rounded-lg profile-img">
+                <h2 class="text-center font-bold text-2xl my-1">Mehtab Wazir</h2>
+                <p class="text-center bg-gray-600 text-white rounded-xl px-2 py-1 my-2 transition-colors hover:bg-gray-500">Under-Development</p>
+                <div class="bottom flex flex-col gap-3 w-full">
+                    <div class="email flex justify-start items-center gap-2 transition-colors hover:bg-gray-600 p- Facetecolor hover:text-yellow-300 rounded">
+                        <i class="fa-regular fa-envelope"></i>
+                        <p>mehtabwazir34@gmail.com</p>
+                    </div>
+                    <div class="contact flex justify-start items-center gap-2 transition-colors hover:bg-gray-600 p-2 rounded hover:text-yellow-300">
+                        <i class="fa-regular fa-user"></i>
+                        <p>+92342 0414189</p>
+                    </div>
+                    <div class="dob flex justify-start items-center gap-2 transition-colors hover:bg-gray-600 p-2 rounded hover:text-yellow-300">
+                        <i class="fa-regular fa-calendar-days"></i>
+                        <p>15 Apr 2004</p>
+                    </div>
+                    <div class="location flex justify-start items-center gap-2 transition-colors hover:bg-gray-600 p-2 rounded hover:text-yellow-300">
+                        <i class="fa-regular fa-compass"></i>
+                        <p>PakhtunKhwa Pakistan</p>
+                    </div>
+                    <!-- Profiles -->
+                    <div class="flex justify-center gap-5 my-2">
+                        <a href="https://www.facebook.com/mehtabwazir34" title="Facebook profile"><img src="fb.png" alt="" class="w-5 rounded-full cursor-pointer hover:opacity-0.7"></a>
+                        <a href="https://www.youtube.com/@wazlyrics34" title="YouTube channel"><img src="yt.png" alt="" class="w-5 rounded-full cursor-pointer hover:opacity-0.7"></a>
+                        <a href="#" title="X handle"><img src="x.png" alt="" class="w-5 rounded-full cursor-pointer hover:opacity-0.7"></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right section -->
+        <section class="w-full bg-gray-700 rounded-lg animate-fadeInUp">
+            <div class="right bg-gray-700 rounded-lg w-full h-full">
+                <!-- Header -->
+                <div class="flex items-center justify-between gap-4 bg-gray-700 rounded-lg overflow-hidden">
+                    <h2 class="relative text-start mx-8 font-bold text-2xl text-yellow-300
+                  after:content-[''] after:block after:w-2/3 after:h-1 after:rounded-lg after:bg-yellow-300 after:mt-1 after:p-0.5">
+                                Blogs
+                            </h2>
+
+                    <nav class="bg-gray-600 p-2 text-white flex justify-between items-center rounded-lg">
+                        <ul class="flex justify-around gap-8 px-8 py-2">
+                            <li><a href="homepage.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Home</a></li>
+                            <li><a href="resumepage.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Resume</a></li>
+                            <li><a href="blog.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Blogs</a></li>
+                            <li><a href="projects.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Projects</a></li>
+                            <li><a href="contact.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!--Blog Contents -->
+                <div class="flex justify-around gap-4 m-6">
+                    <div class="group card-hover rounded-lg border cursor-pointer card-hover group-hover:">
+                        <img src="get customize design (1).jpg" alt="" class="w-full rounded-lg border">
+                        <div class="py-1 px-4 er">
+                        <h4 class="text-gray-200 py-2">Design-23 Feb 2024</h4>
+                        <h2 class="font-bold text-xl text-yellow-50 group-hover:text-yellow-300 transition-colors duration-300">WebSite craft for Waz.Design 2025</h2>
+                        <p class="font-light text-gray-200 py-2">Lorem, ipsum dolor  adipisicing elit. Dolor ipsam quidem ullam quia iste neque vero fugiat, sint quos, alias est?</p>
+                        </div>
+                    </div>
+
+                    <div class="group card-hover rounded-lg border cursor-pointer">
+                        <img src="Video editing.jpg" alt="" class="w-full rounded-lg border">
+                        <div class="py-1 px-4">
+                          <h4 class="text-gray-200 py-2">Design - 23 Feb 2024</h4>
+                          <!-- h2 color changes on parent hover -->
+                          <h2 class="font-bold text-xl text-yellow-50 group-hover:text-yellow-300 transition-colors duration-300">
+                            Website craft for Waz.Design 2025
+                          </h2>
+                          <p class="font-light text-gray-200 py-2">
+                            Lorem, ipsum dolor adipisicing elit. Dolor ipsam quidem ullam quia iste neque vero fugiat, sint quos, alias est?
+                          </p>
+                        </div>
+                      </div>
+                </div>
+                <div class="flex justify-around gap-4 m-6">
+                    <div class="group card-hover rounded-lg border cursor-pointer card-hover group-hover:">
+                        <img src="WazDesing.avif" alt="" class="w-full rounded-lg border">
+                        <div class="py-1 px-4 er">
+                        <h4 class="text-gray-200 py-2">Design-23 Feb 2024</h4>
+                        <h2 class="font-bold text-xl text-yellow-50 group-hover:text-yellow-300 transition-colors duration-300">WebSite craft for Waz.Design 2025</h2>
+                        <p class="font-light text-gray-200 py-2">Lorem, ipsum dolor  adipisicing elit. Dolor ipsam quidem ullam quia iste neque vero fugiat, sint quos, alias est?</p>
+                        </div>
+                    </div>
+
+                    <div class="group card-hover rounded-lg border cursor-pointer">
+                        <img src="Your paragraph text.jpg" alt="" class="w-full rounded-lg border">
+                        <div class="py-1 px-4">
+                          <h4 class="text-gray-200 py-2">Design - 23 Feb 2024</h4>
+                          <!-- h2 color changes on parent hover -->
+                          <h2 class="font-bold text-xl text-yellow-50 group-hover:text-yellow-300 transition-colors duration-300">
+                            Website craft for Waz.Design 2025
+                          </h2>
+                          <p class="font-light text-gray-200 py-2">
+                            Lorem, ipsum dolor adipisicing elit. Dolor ipsam quidem ullam quia iste neque vero fugiat, sint quos, alias est?
+                          </p>
+                        </div>
+                      </div>
+                </div>
+                <div class="flex justify-around gap-4 m-6">
+                    <div class="group card-hover rounded-lg border cursor-pointer card-hover group-hover:">
+                        <img src="GET IT NOW!.jpg" alt="" class="w-full rounded-lg border">
+                        <div class="py-1 px-4 er">
+                        <h4 class="text-gray-200 py-2">Design-23 Feb 2024</h4>
+                        <h2 class="font-bold text-xl text-yellow-50 group-hover:text-yellow-300 transition-colors duration-300">WebSite craft for Waz.Design 2025</h2>
+                        <p class="font-light text-gray-200 py-2">Lorem, ipsum dolor  adipisicing elit. Dolor ipsam quidem ullam quia iste neque vero fugiat, sint quos, alias est?</p>
+                        </div>
+                    </div>
+
+                    <div class="group card-hover rounded-lg border cursor-pointer">
+                        <img src="WazDesing.avif" alt="" class="w-full rounded-lg border">
+                        <div class="py-1 px-4">
+                          <h4 class="text-gray-200 py-2">Design - 23 Feb 2024</h4>
+                          <!-- h2 color changes on parent hover -->
+                          <h2 class="font-bold text-xl text-yellow-50 group-hover:text-yellow-300 transition-colors duration-300">
+                            Website craft for Waz.Design 2025
+                          </h2>
+                          <p class="font-light text-gray-200 py-2">
+                            Lorem, ipsum dolor adipisicing elit. Dolor ipsam quidem ullam quia iste neque vero fugiat, sint quos, alias est?
+                          </p>
+                        </div>
+                      </div>
+                </div>
+            </section>
+        </section>
+</body>
+</html>

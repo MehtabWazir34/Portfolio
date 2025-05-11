@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Card hover effects */
+        .card-hover {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            background-color: #4b5563;
+        }
+
+        /* Navigation link hover effects */
+        .nav-link {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #facc15;
+        }
+
+        /* Image hover effect */
+        .profile-img {
+            transition: all 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+    </style>
+    <title>Portfolio Page</title>
+</head>
+<body class="bg-black">
+    <!-- Main -->
+    <section class="flex justify-between w-full h-full gap-4 p-16">
+        
+        <!-- Left section -->
+        <section class="w-2/5 animate-fadeInUp">
+            <div class="p-2 mx-2 rounded-lg bg-gray-700 text-white card-hover">
+                <img src="me.png" alt="mehtabwazir" class="rounded-sm profile-img">
+                <h2 class="text-center font-bold text-2xl my-1">Mehtab Wazir</h2>
+                <p class="text-center bg-gray-600 text-white rounded-xl px-2 py-1 my-2 transition-colors hover:bg-gray-500">Under-Development</p>
+
+                <div class="bottom flex flex-col gap-3 w-full">
+                    <div class="email flex justify-start items-center gap-2 transition-colors hover:bg-gray-600 p- Facetecolor hover:text-yellow-300 rounded">
+                        <i class="fa-regular fa-envelope"></i>
+                        <p>mehtabwazir34@gmail.com</p>
+                    </div> 
+                    <div class="contact flex justify-start items-center gap-2 transition-colors hover:bg-gray-600 hover:text-yellow-300 p-2 rounded">
+                        <i class="fa-regular fa-user"></i>
+                        <p>+92342 0414189</p>
+                    </div>
+                    <div class="dob flex justify-start items-center gap-2 transition-colors hover:bg-gray-600 hover:text-yellow-300 p-2 rounded">
+                        <i class="fa-regular fa-calendar-days"></i>
+                        <p>15 Apr 2004</p>
+                    </div>
+                    <div class="location flex justify-start items-center gap-2 transition-colors hover:bg-gray-600 hover:text-yellow-300 p-2 rounded">
+                        <i class="fa-regular fa-compass"></i>
+                        <p>PakhtunKhwa Pakistan</p>
+                    </div>
+                    <!-- Profiles -->
+                    <div class="flex justify-center gap-5 my-2">
+                        <a href="https://www.facebook.com/mehtabwazir34" title="Facebook profile"><img src="fb.png" alt="" class="w-5 rounded-full cursor-pointer hover:opacity-0.7"></a>
+                        <a href="https://www.youtube.com/@wazlyrics34" title="YouTube channel"><img src="yt.png" alt="" class="w-5 rounded-full cursor-pointer hover:opacity-0.7"></a>
+                        <a href="#" title="X handle"><img src="x.png" alt="" class="w-5 rounded-full cursor-pointer hover:opacity-0.7"></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right section -->
+        <section class="bg-gray-700 w-full rounded-lg animate-fadeInUp text-white font-light">
+            <div class="right bg-gray-700 rounded-lg w-full">
+                <!-- Header -->
+                <div class="flex items-center justify-between gap-4 bg-gray-700 rounded-lg overflow-hidden">
+                    <h2 class="relative text-start mx-8 font-bold text-2xl text-yellow-300
+                    after:content-[''] after:w-2/3 after:h-1 after:p-0.5 after:bg-yellow-300 after:rounded-lg after:block after:mt-1
+                    ">About</h2>
+                    <nav class="bg-gray-600 p-2 text-white flex justify-between items-center rounded-lg">
+                        <ul class="flex justify-around gap-8 px-8 py-2">
+                            <li><a href="homepage.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Home</a></li>
+                            <li><a href="resumepage.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Resume</a></li>
+                            <li><a href="blog.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Blogs</a></li>
+                            <li><a href="projects.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Projects</a></li>
+                            <li><a href="contact.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="about p-2">
+                    <div class="description px-3 py-2 text-left">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque laboriosam nulla voluptatum pariatur voluptate eius adipisci ea unde, natus debitis qui quasi at, officia numquam quia quo assumenda repellat aliquid!</p>
+                    </div>
+
+                    <!-- Work and skills -->
+                    <div class="p-2">
+                        <h2 class="font-bold text-2xl mx-3 text-yellow-300">My Services!</h2>
+                        <div class="grid grid-cols-2 w-full px-2 py-1 gap-3">
+                            <div class="services shadow-lg bg-gray-600 rounded-xl p-2 card-hover">
+                                <h2 class="text-2xl font-bold text-yellow-300">01:</h2>
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo similique doloremque, illumconsectetur at dicta veniam. Aut amet obcaecati ratione mollitia.
+                            </div>
+                            <div class="services shadow-lg bg-gray-600 rounded-xl p-2 card-hover">
+                                <h2 class="text-2xl font-bold text-yellow-300"> 02:</h2>
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo similique doloremque, illumconsectetur at dicta veniam. Aut amet obcaecati ratione mollitia.
+                            </div>
+                            <div class="services shadow-lg bg-gray-600 rounded-xl p-2 card-hover">
+                                <h2 class="text-2xl font-bold text-yellow-300"> 03:</h2>
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo similique doloremque, illumconsectetur at dicta veniam. Aut amet obcaecati ratione mollitia.
+                            </div>
+                            <div class="services shadow-lg bg-gray-600 rounded-xl p-2 card-hover">
+                                <h2 class="text-2xl font-bold text-yellow-300"> 04:</h2>
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo similique doloremque, illumconsectetur at dicta veniam. Aut amet obcaecati ratione mollitia.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review -->
+                <div class="w-full p-2">
+                    <h2 class="font-bold text-2xl mx-3 text-yellow-300">Reviews</h2>
+                    <div class="grid grid-cols-2 w-full px-2 py-1 gap-3">
+                        <div class="services shadow-lg bg-gray-600 rounded-xl p-2 card-hover">
+                            <h2 class="text-2xl font-bold text-yellow-300"> 01:</h2>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo similique doloremque, illumconsectetur at dicta veniam. Aut amet obcaecati ratione mollitia.
+                        </div>
+                        <div class="services shadow-lg bg-gray-600 rounded-xl p-2 card-hover">
+                            <h2 class="text-2xl font-bold text-yellow-300"> 02:</h2>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo similique doloremque, illumconsectetur at dicta veniam. Aut amet obcaecati ratione mollitia.
+                        </div>
+                        <div class="services shadow-lg bg-gray-600 rounded-xl p-2 card-hover">
+                            <h2 class="text-2xl font-bold text-yellow-300">03:</h2>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo similique doloremque, illumconsectetur at dicta veniam. Aut amet obcaecati ratione mollitia.
+                        </div>
+                        <div class="services shadow-lg bg-gray-600 rounded-xl p-2 card-hover">
+                            <h2 class="text-2xl font-bold text-yellow-300">04:</h2>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo similique doloremque, illumconsectetur at dicta veniam. Aut amet obcaecati ratione mollitia.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Clients -->
+                <div class="class">
+                    <h2 class="font-bold text-2xl mx-3 text-yellow-300">My Clients</h2>
+                    <div class="clients flex justify-center gap-6 bg-gray-400 max-w-full m-4 rounded-lg p-3">
+                        <img src="Litrary AUST.png" alt="" class="w-20 h-20 border border-black shadow-lg shadow-black rounded-lg p-2 profile-img">
+                        <img src="WazDesing.avif" alt="" class="w-20 h-20 border border-black shadow-lg shadow-black rounded-lg p-2 profile-img">
+                        <img src="Youth Development Logo-02.png" alt="" class="w-20 h-20 border border-black shadow-lg shadow-black rounded-lg p-2 profile-img">
+                    </div>
+                </div>
+            </div>
+            <!-- End -->
+        </section> 
+    </section>    
+</body>
+</html>

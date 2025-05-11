@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @media(max-width:640px){
+            #NNN{
+                display: grid;
+                justify-content: center;
+                align-items: center;
+            }
+            #me{
+                width: 75%;
+                height: 75%;
+                margin: 6px auto;
+                border-radius: 0.5rem;
+            }
+            
+          
+        }
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Card hover effects */
+        .card-hover {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            background-color: #4b5563;
+        }
+
+        /* Navigation link hover effects */
+        .nav-link {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #facc15;
+        }
+
+        /* Image hover effect */
+        .profile-img {
+            transition: all 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+    </style>
+
+    <!-- Load the Maps API with your key -->
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+</script>
+
+    <title>Contact Form</title>
+</head>
+<body class="bg-black">
+    <section class="flex flex-col md:flex-row justify-between w-full h-full gap-4 md:p-16">
+
+         <!-- Left section -->
+<section class="md:w-2/5 w-full animate-fadeInUp relative">
+  <div class="p-2 md:mx-2 rounded-lg bg-gray-700 text-white relative">
+    
+    <!-- Toggle Button (visible only on small screens) -->
+    <button id="toggleDetails" class="absolute top-2 right-2 text-sm px-2 py-1 bg-yellow-300 text-black rounded-lg md:hidden">
+      Show details
+    </button>
+
+    <!-- Responsive top layout (image + name + under-dev) -->
+    <div class="flex flex-col md:flex-col sm:flex-row sm:items-center sm:justify-center sm:gap-4">
+      <img id="me" src="me.png" alt="mehtabwazir" class="rounded-sm profile-img w-full sm:w-1/4 object-cover">
+      <div id="NNN" class="mt-2 sm:mt-0 sm:flex-1 sm:mx-auto">
+        <h2 class="text-start font-bold text-2xl">Mehtab Wazir</h2>
+        <p class="bg-gray-600 text-white rounded-xl px-2 py-1 mt-1 transition-colors hover:bg-gray-500 w-fit">
+          Under-Development
+        </p>
+        
+      </div>
+    
+    </div>
+
+    <!-- Hidden content for small screens, always visible for md+ -->
+    <div id="details" class="flex-col gap-3 w-full mt-4 md:flex  hidden transition-all">
+      <div class="email flex justify-start items-center gap-2 transition-colors hover:bg-gray-600 p-2 hover:text-yellow-300 rounded">
+        <i class="fa-regular fa-envelope"></i>
+        <p>mehtabwazir34@gmail.com</p>
+      </div> 
+      <div class="contact flex justify-start items-center gap-2 transition-colors hover:bg-gray-600 hover:text-yellow-300 p-2 rounded">
+        <i class="fa-regular fa-user"></i>
+        <p>+92342 0414189</p>
+      </div>
+      <div class="dob flex justify-start items-center gap-2 transition-colors hover:bg-gray-600 hover:text-yellow-300 p-2 rounded">
+        <i class="fa-regular fa-calendar-days"></i>
+        <p>15 Apr 2004</p>
+      </div>
+      <div class="location flex justify-start items-center gap-2 transition-colors hover:bg-gray-600 hover:text-yellow-300 p-2 rounded">
+        <i class="fa-regular fa-compass"></i>
+        <p>PakhtunKhwa Pakistan</p>
+      </div>
+      <div class="flex justify-center gap-5 my-2">
+        <a href="https://www.facebook.com/mehtabwazir34" title="Facebook profile">
+          <img src="fb.png" alt="Facebook" class="w-5 rounded-full cursor-pointer hover:opacity-70">
+        </a>
+        <a href="https://www.youtube.com/@wazlyrics34" title="YouTube channel">
+          <img src="yt.png" alt="YouTube" class="w-5 rounded-full cursor-pointer hover:opacity-70">
+        </a>
+        <a href="#" title="X handle">
+          <img src="x.png" alt="X" class="w-5 rounded-full cursor-pointer hover:opacity-70">
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+        <!-- Right -->
+        <section class="bg-gray-700 rounded-lg w-full animate-fadeInUp">
+            <div class="right bg-gray-700 rounded-lg w-full">
+                <!-- Header -->
+                <div class="flex items-center justify-between gap-4 bg-gray-700 rounded-lg overflow-hidden">
+                    <h2 class="relative text-start mx-8 font-bold text-2xl text-yellow-300 after:w-2/3 after:h-1 after:p-0.5 after:bg-yellow-300 after:content-[''] after:rounded-lg after:block after:mt-1">Contact</h2>
+                    <nav class="bg-gray-600 p-2 text-white flex justify-between items-center rounded-lg">
+                        <ul class="flex justify-around gap-8 px-8 py-2">
+                            <li><a href="homepage.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Home</a></li>
+                            <li><a href="resumepage.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Resume</a></li>
+                            <li><a href="blog.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Blogs</a></li>
+                            <li><a href="projects.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Projects</a></li>
+                            <li><a href="contact.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- Map loc -->
+                <div id="map" class="w-full flex justify-center rounded-lg p-6 mx-auto my-2">
+                    <iframe class="rounded-lg w-full h-80 cursor-zoom-in-out " src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105628.07487447029!2d73.1535371583406!3d34.175053612747405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38de3111557ac517%3A0x6e59a635b12e952c!2sAbbottabad%2C%20Pakistan!5e0!3m2!1sen!2s!4v1746715216999!5m2!1sen!2s"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                
+
+                 <!-- Form -->
+                  <div class="w-full p-4 grid ">
+                    <h2 class="w-full text-start font-bold text-2xl text-yellow-100">Contact Form</h2>
+                    
+                    <div class="w-full flex p-4 rounded-lg my-3">
+                        <form action="" class="w-full">
+                            <div class="w-full flex gap-2">
+                            <label for="name" id="name"></label>
+                            <input type="text" id="name" required class="bg-transparent border border-gray-500 rounded-lg p-2 w-full" placeholder="Type your name here..." >
+                            <label for="email" id="email"></label>
+                            <input type="email" id="email" placeholder="Type email here..." class="bg-transparent border border-gray-500 rounded-lg p-2 w-full">
+                            </div>
+                            <label for="message" id="message"></label>
+                            <textarea required class="w-full m-2 rounded-lg p-4 bg-transparent border border-gray-500" name="message" id="message" cols="8" rows="4" placeholder="Write message here..."></textarea>
+                        </form>
+                    </div>
+
+                    <button id="sentMsg" title="Send Message" class="bg-gray-800 p-3 rounded-lg border border-gray-500 text-yellow-50 cursor-pointer hover:text-yellow-400 hover:bg-gray-600 w-1/3 mx-auto"><i class="fa-regular fa-paper-plane"></i> Send Message</button>
+                  </div>
+
+                <!-- End of Right -->
+            </div>
+         </section>
+
+         <!-- Main End -->
+    </section>
+
+<!-- JS to toggle visibility -->
+<script>
+  const toggleBtn = document.getElementById('toggleDetails');
+  const details = document.getElementById('details');
+
+  toggleBtn.addEventListener('click', () => {
+    const isHidden = details.classList.contains('hidden');
+    details.classList.toggle('hidden');
+    toggleBtn.textContent = isHidden ? 'Hide details' : 'Show details';
+  });
+</script>
+
+</body>
+
+</html>
