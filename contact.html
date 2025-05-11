@@ -19,7 +19,15 @@
                 margin: 6px auto;
                 border-radius: 0.5rem;
             }
-            
+            #toggleDetails, #sentMsg{
+              min-width: 80%;
+              padding: 4px 2px;
+              margin: 4px auto;
+            }
+            #sentMsg{
+              margin-top: -1.5rem;
+              
+            }
           
         }
         /* Custom animations */
@@ -74,6 +82,26 @@
             transform: scale(1.05);
             filter: brightness(1.1);
         }
+
+                /* Custom styles for menu animation and positioning */
+        #menuItems {
+            transition: transform 0.3s ease-in-out;
+        }
+        @media (max-width: 440px){
+            #menuItems li{
+                width: 100%;
+            }
+        }
+        @media (max-width: 640px) {
+            #menuItems{
+                max-width: 100vw;
+                height: 80vh;
+            }
+            #menuItems li{
+                margin: 12px auto;
+            }
+          }
+
     </style>
 
     <!-- Load the Maps API with your key -->
@@ -88,22 +116,22 @@
 
          <!-- Left section -->
 <section class="md:w-2/5 w-full animate-fadeInUp relative">
-  <div class="p-2 md:mx-2 rounded-lg bg-gray-700 text-white relative">
+  <div class="p-2 md:mx-2 rounded-lg bg-gray-700 text-white relative card-hover">
     
-    <!-- Toggle Button (visible only on small screens) -->
-    <button id="toggleDetails" class="absolute top-2 right-2 text-sm px-2 py-1 bg-yellow-300 text-black rounded-lg md:hidden">
-      Show details
-    </button>
+    
 
     <!-- Responsive top layout (image + name + under-dev) -->
     <div class="flex flex-col md:flex-col sm:flex-row sm:items-center sm:justify-center sm:gap-4">
-      <img id="me" src="me.png" alt="mehtabwazir" class="rounded-sm profile-img w-full ">
+      <img id="me" src="me.png" alt="mehtabwazir" class="rounded-sm profile-img w-full sm:w-1/2 ">
       <div id="NNN" class="mt-2 sm:mt-0 sm:flex-1 sm:mx-auto">
         <h2 class="text-start font-bold text-2xl">Mehtab Wazir</h2>
         <p class="bg-gray-600 text-white rounded-xl px-2 py-1 mt-1 transition-colors hover:bg-gray-500 w-fit">
           Under-Development
         </p>
-        
+        <!-- Toggle Button (visible only on small screens) -->
+    <button id="toggleDetails" class="mx-auto my-2 w-1/2 text-sm px-2 py-1 bg-yellow-300 text-black rounded-lg md:hidden">
+      Show details
+    </button>
       </div>
     
     </div>
@@ -124,7 +152,7 @@
       </div>
       <div class="location flex justify-start items-center gap-2 transition-colors hover:bg-gray-600 hover:text-yellow-300 p-2 rounded">
         <i class="fa-regular fa-compass"></i>
-        <p>PakhtunKhwa Pakistan</p>
+        <p>Bannu, PakhtunKhwa, Pakistan.</p>
       </div>
       <div class="flex justify-center gap-5 my-2">
         <a href="https://www.facebook.com/mehtabwazir34" title="Facebook profile">
@@ -142,51 +170,65 @@
 </section>
 
 
-        <!-- Right -->
-        <section class="bg-gray-700 rounded-lg w-full animate-fadeInUp">
-            <div class="right bg-gray-700 rounded-lg w-full">
-                <!-- Header -->
-                <div class="flex items-center justify-between gap-4 bg-gray-700 rounded-lg overflow-hidden">
-                    <h2 class="relative text-start mx-8 font-bold text-2xl text-yellow-300 after:w-2/3 after:h-1 after:p-0.5 after:bg-yellow-300 after:content-[''] after:rounded-lg after:block after:mt-1">Contact</h2>
-                    <nav class="bg-gray-600 p-2 text-white flex justify-between items-center rounded-lg">
-                        <ul class="flex justify-around gap-8 px-8 py-2">
-                            <li><a href="index.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Home</a></li>
-                            <li><a href="resumepage.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Resume</a></li>
-                            <li><a href="blog.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Blogs</a></li>
-                            <li><a href="projects.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Projects</a></li>
-                            <li><a href="contact.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <!-- Map loc -->
-                <div id="map" class="w-full flex justify-center rounded-lg p-6 mx-auto my-2">
-                    <iframe class="rounded-lg w-full h-80 cursor-zoom-in-out " src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105628.07487447029!2d73.1535371583406!3d34.175053612747405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38de3111557ac517%3A0x6e59a635b12e952c!2sAbbottabad%2C%20Pakistan!5e0!3m2!1sen!2s!4v1746715216999!5m2!1sen!2s"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-                
+<!-- Right -->
+<section class="bg-gray-700 rounded-lg w-full min-h-screen animate-fadeInUp relative">
 
-                 <!-- Form -->
-                  <div class="w-full p-4 grid ">
-                    <h2 class="w-full text-start font-bold text-2xl text-yellow-100">Contact Form</h2>
-                    
-                    <div class="w-full flex p-4 rounded-lg my-3">
-                        <form action="" class="w-full">
-                            <div class="w-full flex gap-2">
-                            <label for="name" id="name"></label>
-                            <input type="text" id="name" required class="bg-transparent border border-gray-500 rounded-lg p-2 w-full" placeholder="Type your name here..." >
-                            <label for="email" id="email"></label>
-                            <input type="email" id="email" placeholder="Type email here..." class="bg-transparent border border-gray-500 rounded-lg p-2 w-full">
-                            </div>
-                            <label for="message" id="message"></label>
-                            <textarea required class="w-full m-2 rounded-lg p-4 bg-transparent border border-gray-500" name="message" id="message" cols="8" rows="4" placeholder="Write message here..."></textarea>
-                        </form>
+    <!-- Toggle Button in Header (Right Side) -->
+    <div class="flex items-center justify-between gap-4 bg-gray-700 rounded-lg overflow-hidden">
+        <h2 class="relative text-start mx-8 font-bold text-2xl text-yellow-300 after:w-2/3 after:h-1 after:p-0.5 after:bg-yellow-300 after:content-[''] after:rounded-lg after:block after:mt-1">Contact</h2>
+        <nav class="bg-gray-600 p-2 text-white flex justify-between items-center rounded-lg  sm:w-auto">
+            <ul class="hidden sm:flex sm:justify-around gap-8 px-8 py-2">
+                <li><a href="index.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Home</a></li>
+                <li><a href="resumepage.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Resume</a></li>
+                <li><a href="blog.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Blogs</a></li>
+                <li><a href="projects.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Projects</a></li>
+                <li><a href="contact.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Contact</a></li>
+            </ul>
+            <!-- Toggle Icon -->
+            <button onclick="menuToggle()" id="toggleBtn" title="Show menu" class="right:4 mx-4 sm:hidden p-2 rounded-full transition-colors bg-gray-600 border border-white">
+                <i id="menuIcon" class="fa-solid fa-bars text-white"></i>
+            </button>
+        </nav>
+    </div>
+
+    <!-- MenuBar (Nav02) for Small Screens -->
+    <div id="menuBar" class="hidden flex flex-col sm:hidden fixed my-16 w-full h-full inset-0 bg-gray-600 p-4">
+        <ul class="flex flex-col justify-center gap-8 px-8 py-2 text-white bg-gray-600">
+                <li><a href="index.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Home</a></li>
+                <li><a href="resumepage.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Resume</a></li>
+                <li><a href="blog.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Blogs</a></li>
+                <li><a href="projects.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Projects</a></li>
+                <li><a href="contact.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Contact</a></li>
+            </ul>
+    </div>
+
+    <!-- Main Content (Will be hidden when menu is open) -->
+    <div id="mainContent" class="right bg-gray-700 rounded-lg w-full">
+
+        <!-- Map Location -->
+        <div id="map" class="w-full flex justify-center rounded-lg p-6 mx-auto my-2">
+            <iframe class="rounded-lg w-full h-80 cursor-zoom-in-out" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105628.07487447029!2d73.1535371583406!3d34.175053612747405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38de3111557ac517%3A0x6e59a635b12e952c!2sAbbottabad%2C%20Pakistan!5e0!3m2!1sen!2s!4v1746715216999!5m2!1sen!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="w-full p-4 grid">
+            <h2 class="w-full text-start font-bold text-2xl text-yellow-100">Contact Form</h2>
+
+            <div class="grid w-full sm:flex p-4 rounded-lg my-3">
+                <form action="" class="w-full">
+                    <div class="w-full grid sm:flex gap-2">
+                        <input type="text" id="name" required class="bg-transparent border border-gray-500 rounded-lg p-2 w-full" placeholder="Type your name here...">
+                        <input type="email" id="email" placeholder="Type email here..." class="bg-transparent border border-gray-500 rounded-lg p-2 w-full">
                     </div>
-
-                    <button id="sentMsg" title="Send Message" class="bg-gray-800 p-3 rounded-lg border border-gray-500 text-yellow-50 cursor-pointer hover:text-yellow-400 hover:bg-gray-600 w-1/3 mx-auto"><i class="fa-regular fa-paper-plane"></i> Send Message</button>
-                  </div>
-
-                <!-- End of Right -->
+                    <textarea required class="w-full sm:m-2 my-2 mx-auto rounded-lg p-4 bg-transparent border border-gray-500" name="message" id="message" cols="8" rows="4" placeholder="Write message here..."></textarea>
+                </form>
             </div>
-         </section>
+
+            <button id="sentMsg" title="Send Message" class="bg-gray-800 p-3 rounded-lg border border-gray-500 text-yellow-50 cursor-pointer hover:text-yellow-400 hover:bg-gray-600 w-1/3 mx-auto"><i class="fa-regular fa-paper-plane"></i> Send Message</button>
+        </div>
+    </div> <!-- End of Main Content -->
+
+</section>
 
          <!-- Main End -->
     </section>
@@ -201,6 +243,24 @@
     details.classList.toggle('hidden');
     toggleBtn.textContent = isHidden ? 'Hide details' : 'Show details';
   });
+  
+      const menuBar = document.getElementById("menuBar");
+    const mainContent = document.getElementById("mainContent");
+    const menuIcon = document.getElementById("menuIcon");
+    // const toggleBtn = document.getElementById("toggleBtn");
+
+    function menuToggle() {
+        menuBar.classList.toggle('hidden');
+        mainContent.classList.toggle('hidden');
+
+        // Toggle icon and title
+        const isMenuOpen = !menuBar.classList.contains('hidden');
+        menuIcon.className = isMenuOpen
+            ? 'fa-solid fa-xmark text-white'
+            : 'fa-solid fa-bars text-white';
+
+        toggleBtn.title = isMenuOpen ? 'Hide menu' : 'Show menu';
+    }
 </script>
 
 </body>

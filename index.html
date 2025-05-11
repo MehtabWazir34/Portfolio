@@ -7,6 +7,44 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+         @media(max-width:640px){
+            #NNN{
+                display: grid;
+                justify-content: center;
+                align-items: center;
+            }
+            #me{
+                width: 75%;
+                height: 75%;
+                margin: 6px auto;
+                border-radius: 0.5rem;
+            }
+            #toggleDetails, #sentMsg{
+              min-width: 80%;
+              padding: 4px 2px;
+              margin: 4px auto;
+            }
+            #sentMsg{
+              margin-top: -1.5rem;
+              
+            }
+            #clients {
+                max-width: fit-content;
+                margin: 4px auto;
+            }
+            #clients img{
+                margin: 4px auto;
+            }
+        }
+        @media (max-width:760px){
+            #clients {
+                max-width: fit-content;
+                margin: 4px auto;
+            }
+            #clients img{
+                margin: 4px auto;
+            }
+        }
         /* Custom animations */
         @keyframes fadeInUp {
             from {
@@ -59,65 +97,129 @@
             transform: scale(1.05);
             filter: brightness(1.1);
         }
+
+                /* Custom styles for menu animation and positioning */
+        #menuItems {
+            transition: transform 0.3s ease-in-out;
+        }
+        @media (max-width: 440px){
+            #menuItems li{
+                width: 100%;
+            }
+        }
+        @media (max-width: 640px) {
+            #menuItems{
+                max-width: 100vw;
+                height: 80vh;
+            }
+            #menuItems li{
+                margin: 12px auto;
+            }
+          }
+
+        /* Progress bar animation */
+        .progress-bar {
+            animation: progress 1.5s ease-in-out forwards;
+        }
+
+        @keyframes progress {
+            from {
+                width: 0;
+            }
+            to {
+                width: var(--progress-width);
+            }
+        }
     </style>
     <title>Portfolio Page</title>
-</head>
+</head> 
+
 <body class="bg-black">
     <!-- Main -->
-    <section class="flex justify-between w-full h-full gap-4 p-16">
+    <section class="flex flex-col md:flex-row justify-between w-full h-full gap-4 md:p-16">
         
-        <!-- Left section -->
-        <section class="w-2/5 animate-fadeInUp">
-            <div class="p-2 mx-2 rounded-lg bg-gray-700 text-white card-hover">
-                <img src="me.png" alt="mehtabwazir" class="rounded-sm profile-img">
-                <h2 class="text-center font-bold text-2xl my-1">Mehtab Wazir</h2>
-                <p class="text-center bg-gray-600 text-white rounded-xl px-2 py-1 my-2 transition-colors hover:bg-gray-500">Under-Development</p>
-
-                <div class="bottom flex flex-col gap-3 w-full">
-                    <div class="email flex justify-start items-center gap-2 transition-colors hover:bg-gray-600 p- Facetecolor hover:text-yellow-300 rounded">
-                        <i class="fa-regular fa-envelope"></i>
-                        <p>mehtabwazir34@gmail.com</p>
-                    </div> 
-                    <div class="contact flex justify-start items-center gap-2 transition-colors hover:bg-gray-600 hover:text-yellow-300 p-2 rounded">
-                        <i class="fa-regular fa-user"></i>
-                        <p>+92342 0414189</p>
-                    </div>
-                    <div class="dob flex justify-start items-center gap-2 transition-colors hover:bg-gray-600 hover:text-yellow-300 p-2 rounded">
-                        <i class="fa-regular fa-calendar-days"></i>
-                        <p>15 Apr 2004</p>
-                    </div>
-                    <div class="location flex justify-start items-center gap-2 transition-colors hover:bg-gray-600 hover:text-yellow-300 p-2 rounded">
-                        <i class="fa-regular fa-compass"></i>
-                        <p>PakhtunKhwa Pakistan</p>
-                    </div>
-                    <!-- Profiles -->
-                    <div class="flex justify-center gap-5 my-2">
-                        <a href="https://www.facebook.com/mehtabwazir34" title="Facebook profile"><img src="fb.png" alt="" class="w-5 rounded-full cursor-pointer hover:opacity-0.7"></a>
-                        <a href="https://www.youtube.com/@wazlyrics34" title="YouTube channel"><img src="yt.png" alt="" class="w-5 rounded-full cursor-pointer hover:opacity-0.7"></a>
-                        <a href="#" title="X handle"><img src="x.png" alt="" class="w-5 rounded-full cursor-pointer hover:opacity-0.7"></a>
-                    </div>
-                </div>
-            </div>
-        </section>
+            <!-- Left section -->
+        <section class="md:w-2/5 w-full animate-fadeInUp relative">
+            <div class="p-2 md:mx-2 rounded-lg bg-gray-700 text-white relative card-hover">
+                <!-- Responsive top layout (image + name + under-dev) -->
+    <div class="flex flex-col md:flex-col sm:flex-row sm:items-center sm:justify-center sm:gap-4">
+      <img id="me" src="me.png" alt="mehtabwazir" class="rounded-sm profile-img w-full sm:w-1/2 ">
+      <div id="NNN" class="mt-2 sm:mt-0 sm:flex-1 sm:mx-auto">
+        <h2 class="text-start font-bold text-2xl">Mehtab Wazir</h2>
+        <p class="bg-gray-600 text-white rounded-xl px-2 py-1 mt-1 transition-colors hover:bg-gray-500 w-fit">
+          Under-Development
+        </p>
+        <!-- Toggle Button (visible only on small screens) -->
+    <button id="toggleDetails" class="mx-auto my-2 w-1/2 text-sm px-2 py-1 bg-yellow-300 text-black rounded-lg md:hidden">
+      Show details
+    </button>
+      </div>
+    
+    </div>
+          <!-- Hidden content for small screens, always visible for md+ -->
+    <div id="details" class="flex-col gap-3 w-full mt-4 md:flex  hidden transition-all">
+      <div class="email flex justify-start items-center gap-2 transition-colors hover:bg-gray-600 p-2 hover:text-yellow-300 rounded">
+        <i class="fa-regular fa-envelope"></i>
+        <p>mehtabwazir34@gmail.com</p>
+      </div> 
+      <div class="contact flex justify-start items-center gap-2 transition-colors hover:bg-gray-600 hover:text-yellow-300 p-2 rounded">
+        <i class="fa-regular fa-user"></i>
+        <p>+92342 0414189</p>
+      </div>
+      <div class="dob flex justify-start items-center gap-2 transition-colors hover:bg-gray-600 hover:text-yellow-300 p-2 rounded">
+        <i class="fa-regular fa-calendar-days"></i>
+        <p>15 Apr 2004</p>
+      </div>
+      <div class="location flex justify-start items-center gap-2 transition-colors hover:bg-gray-600 hover:text-yellow-300 p-2 rounded">
+        <i class="fa-regular fa-compass"></i>
+        <p>Bannu, PakhtunKhwa, Pakistan.</p>
+      </div>
+      <div class="flex justify-center gap-5 my-2">
+        <a href="https://www.facebook.com/mehtabwazir34" title="Facebook profile">
+          <img src="fb.png" alt="Facebook" class="w-5 rounded-full cursor-pointer hover:opacity-70">
+        </a>
+        <a href="https://www.youtube.com/@wazlyrics34" title="YouTube channel">
+          <img src="yt.png" alt="YouTube" class="w-5 rounded-full cursor-pointer hover:opacity-70">
+        </a>
+        <a href="#" title="X handle">
+          <img src="x.png" alt="X" class="w-5 rounded-full cursor-pointer hover:opacity-70">
+        </a>
+      </div>
+    </div>
+</div>
+</section>
 
         <!-- Right section -->
         <section class="bg-gray-700 w-full rounded-lg animate-fadeInUp text-white font-light">
             <div class="right bg-gray-700 rounded-lg w-full">
-                <!-- Header -->
-                <div class="flex items-center justify-between gap-4 bg-gray-700 rounded-lg overflow-hidden">
-                    <h2 class="relative text-start mx-8 font-bold text-2xl text-yellow-300
-                    after:content-[''] after:w-2/3 after:h-1 after:p-0.5 after:bg-yellow-300 after:rounded-lg after:block after:mt-1
-                    ">About</h2>
-                    <nav class="bg-gray-600 p-2 text-white flex justify-between items-center rounded-lg">
-                        <ul class="flex justify-around gap-8 px-8 py-2">
-                            <li><a href="index.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Home</a></li>
-                            <li><a href="resumepage.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Resume</a></li>
-                            <li><a href="blog.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Blogs</a></li>
-                            <li><a href="projects.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Projects</a></li>
-                            <li><a href="contact.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
+                        <!-- Header -->
+          <!-- Toggle Button in Header (Right Side) -->
+    <div class="flex items-center justify-between gap-4 bg-gray-700 rounded-lg overflow-hidden">
+        <h2 class="relative text-start mx-8 font-bold text-2xl text-yellow-300 after:w-2/3 after:h-1 after:p-0.5 after:bg-yellow-300 after:content-[''] after:rounded-lg after:block after:mt-1">About</h2>
+        <nav class="bg-gray-600 p-2 text-white flex justify-between items-center rounded-lg  sm:w-auto">
+            <ul class="hidden sm:flex sm:justify-around gap-8 px-8 py-2">
+                <li><a href="index.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Home</a></li>
+                <li><a href="resumepage.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Resume</a></li>
+                <li><a href="blog.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Blogs</a></li>
+                <li><a href="projects.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Projects</a></li>
+                <li><a href="contact.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Contact</a></li>
+            </ul>
+            <!-- Toggle Icon -->
+            <button onclick="menuToggle()" id="toggleBtn" title="Show menu" class="right:4 mx-4 sm:hidden p-2 rounded-full transition-colors bg-gray-600 border border-white">
+                <i id="menuIcon" class="fa-solid fa-bars text-white"></i>
+            </button>
+        </nav>
+    </div>
+        <!-- MenuBar (Nav02) for Small Screens -->
+    <div id="menuBar" class="hidden flex flex-col sm:hidden fixed my-16 w-full h-full inset-0 bg-gray-600 p-4">
+        <ul class="flex flex-col justify-center gap-8 px-8 py-2 text-white bg-gray-600">
+                <li><a href="index.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Home</a></li>
+                <li><a href="resumepage.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Resume</a></li>
+                <li><a href="blog.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Blogs</a></li>
+                <li><a href="projects.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Projects</a></li>
+                <li><a href="contact.html" class="nav-link cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Contact</a></li>
+            </ul>
+    </div>
                 <div class="about p-2">
                     <div class="description px-3 py-2 text-left">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque laboriosam nulla voluptatum pariatur voluptate eius adipisci ea unde, natus debitis qui quasi at, officia numquam quia quo assumenda repellat aliquid!</p>
@@ -126,7 +228,7 @@
                     <!-- Work and skills -->
                     <div class="p-2">
                         <h2 class="font-bold text-2xl mx-3 text-yellow-300">My Services!</h2>
-                        <div class="grid grid-cols-2 w-full px-2 py-1 gap-3">
+                        <div class="grid md:grid-cols-2 w-full px-2 py-1 gap-3">
                             <div class="services shadow-lg bg-gray-600 rounded-xl p-2 card-hover">
                                 <h2 class="text-2xl font-bold text-yellow-300">01:</h2>
                                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo similique doloremque, illumconsectetur at dicta veniam. Aut amet obcaecati ratione mollitia.
@@ -150,7 +252,7 @@
                 <!-- Review -->
                 <div class="w-full p-2">
                     <h2 class="font-bold text-2xl mx-3 text-yellow-300">Reviews</h2>
-                    <div class="grid grid-cols-2 w-full px-2 py-1 gap-3">
+                    <div class="grid md:grid-cols-2 w-full px-2 py-1 gap-3">
                         <div class="services shadow-lg bg-gray-600 rounded-xl p-2 card-hover">
                             <h2 class="text-2xl font-bold text-yellow-300"> 01:</h2>
                             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo similique doloremque, illumconsectetur at dicta veniam. Aut amet obcaecati ratione mollitia.
@@ -173,15 +275,44 @@
                 <!-- Clients -->
                 <div class="class">
                     <h2 class="font-bold text-2xl mx-3 text-yellow-300">My Clients</h2>
-                    <div class="clients flex justify-center gap-6 bg-gray-400 max-w-full m-4 rounded-lg p-3">
-                        <img src="Litrary AUST.png" alt="" class="w-20 h-20 border border-black shadow-lg shadow-black rounded-lg p-2 profile-img">
-                        <img src="WazDesing.avif" alt="" class="w-20 h-20 border border-black shadow-lg shadow-black rounded-lg p-2 profile-img">
-                        <img src="Youth Development Logo-02.png" alt="" class="w-20 h-20 border border-black shadow-lg shadow-black rounded-lg p-2 profile-img">
+                    <div id="clients" class="flex flex-col md:flex-row justify-center gap-6 bg-gray-400 max-w-full m-4 rounded-lg p-3">
+                        <img src="Litrary AUST.png" alt="" class="w-20 h-20 border border-black shadow-lg shadow-black rounded-lg p-2 profile-img ">
+                        <img src="WazDesing.avif" alt="" class="w-20 h-20 border border-black shadow-lg shadow-black rounded-lg p-2 profile-img ">
+                        <img src="Youth Development Logo-02.png" alt="" class="w-20 h-20 border border-black shadow-lg shadow-black rounded-lg p-2 profile-img ">
                     </div>
                 </div>
             </div>
             <!-- End -->
         </section> 
-    </section>    
+    </section> 
+    
+    <script>
+  const toggleBtn = document.getElementById('toggleDetails');
+  const details = document.getElementById('details');
+
+  toggleBtn.addEventListener('click', () => {
+    const isHidden = details.classList.contains('hidden');
+    details.classList.toggle('hidden');
+    toggleBtn.textContent = isHidden ? 'Hide details' : 'Show details';
+  });
+  
+    const menuBar = document.getElementById("menuBar");
+    const mainContent = document.getElementById("mainContent");
+    const menuIcon = document.getElementById("menuIcon");
+    // const toggleBtn = document.getElementById("toggleBtn");
+
+    function menuToggle() {
+        menuBar.classList.toggle('hidden');
+        mainContent.classList.toggle('hidden');
+
+        // Toggle icon and title
+        const isMenuOpen = !menuBar.classList.contains('hidden');
+        menuIcon.className = isMenuOpen
+            ? 'fa-solid fa-xmark text-white'
+            : 'fa-solid fa-bars text-white';
+
+        toggleBtn.title = isMenuOpen ? 'Hide menu' : 'Show menu';
+    }
+</script> 
 </body>
 </html>
